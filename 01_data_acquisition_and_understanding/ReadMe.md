@@ -11,14 +11,6 @@ The [companion script](1_Download_and_Parse_XML_Spark.py) covers how to:
    * save the abstracts into TSV files and
    * upload the TSV files to the blob storage container associated with the spark cluster (see the process_files() function in the Python script).
 
-To upload these files to a different blob storage, create blob storage container 'dataset' in your storage account. You can do that by going to Azure page of your storage account, clicking Blobs and then clicking +Container. Enter 'dataset' as Name and click OK. The following screenshots illustrate these steps:
-
-![Open blob](../../docs/images/open_blob.png)
-
-![Open container](../../docs/images/open_container.png)
-
-The upload of the files takes several minutes, depending on your Internet connection. 
-
 ### Execution Steps 
 
  First, the data is downloaded into the Spark cluster. Then the following steps are executed on the [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html): 
@@ -27,10 +19,6 @@ The upload of the files takes several minutes, depending on your Internet connec
 * exclude articles where abstract field is empty or has short text 
 * create the word vocabulary from the training abstracts
 * train the word embedding neural model. You can refer to this [Python script](../01_feature_engineering/2_Train_Word2Vec_Model_Spark.py) and its [documentation](../01_feature_engineering/ReadMe.md) to get started.
-
-After parsing the Medline XML files, each data record has the following format: 
-
-![Data Sample](../../docs/images/datasample.png)
 
 The neural entity extraction model has been trained and evaluated on publicly available datasets. To obtain a detailed description about these datasets, you could refer to the following sources:
  * [Bio-Entity Recognition Task at BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
